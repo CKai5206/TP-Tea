@@ -1,5 +1,6 @@
 package com.example.b0917.tp_tea;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,10 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+        private Button menu_btn,branches_btn,event_btn,game_btn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,14 +26,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -40,8 +35,44 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getButtonView();
+        setButtonEvent();
     }
 
+    private void getButtonView(){
+        menu_btn = (Button)findViewById(R.id.menu_btn);
+        branches_btn = (Button)findViewById(R.id.branches_btn);
+        event_btn = (Button)findViewById(R.id.event_btn);
+        game_btn = (Button)findViewById(R.id.game_btn);
+    }
+
+    public void setButtonEvent(){
+        menu_btn.setOnClickListener(buttonListener);
+        branches_btn.setOnClickListener(buttonListener);
+        event_btn.setOnClickListener(buttonListener);
+        game_btn.setOnClickListener(buttonListener);
+    }
+
+    private Button.OnClickListener buttonListener= new Button.OnClickListener(){
+        @Override
+        public void onClick(View view){
+            switch (view.getId()){
+                case R.id.menu_btn:
+                    Toast.makeText(MainActivity.this,"menu",Toast.LENGTH_SHORT).show();
+                break;
+                case R.id.branches_btn:
+                    Toast.makeText(MainActivity.this,"branches",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.event_btn:
+                    Toast.makeText(MainActivity.this,"event",Toast.LENGTH_SHORT).show();
+                    break;
+                case R.id.game_btn:
+                    Toast.makeText(MainActivity.this,"game",Toast.LENGTH_SHORT).show();
+                break;
+            }
+        }
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -80,8 +111,10 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_home) {
+            Intent intent = new Intent();
+            intent.setClass(this,MainActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
