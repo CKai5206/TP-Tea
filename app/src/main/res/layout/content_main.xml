@@ -40,14 +40,14 @@
                     android:id="@+id/menu_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:text="menu" />
 
                 <Button
                     android:id="@+id/branches_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:text="branches" />
             </LinearLayout>
 
@@ -61,14 +61,14 @@
                     android:id="@+id/event_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:text="event" />
 
                 <Button
                     android:id="@+id/game_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="0.5"
+                    android:layout_weight="1"
                     android:text="game" />
             </LinearLayout>
         </LinearLayout>
