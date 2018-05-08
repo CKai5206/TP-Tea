@@ -3,6 +3,8 @@ package com.example.b0917.tp_tea;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        displaySelectedScreen(R.id.nav_home);
     }
 
 
@@ -65,19 +68,31 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.nav_page1) {
-            Toast.makeText(MainActivity.this,"page1",Toast.LENGTH_LONG).show();
-        } else if (id == R.id.nav_page2) {
-
+    public void displaySelectedScreen(int id){
+        Fragment fragment = null;
+        switch (id){
+            case R.id.nav_home:
+                fragment = new Home_page();
+                break;
+            case R.id.nav_page2:
+                break;
+        }
+        if(fragment != null){
+            FragmentTransaction fragTrans = getSupportFragmentManager().beginTransaction();
+            fragTrans.replace(R.id.content_main,fragment);
+            fragTrans.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+    }
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+
+        int id = item.getItemId();
+
+        displaySelectedScreen(id);
+
         return true;
     }
 }
