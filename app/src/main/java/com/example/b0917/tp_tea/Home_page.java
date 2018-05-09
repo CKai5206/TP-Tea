@@ -46,13 +46,13 @@ public class Home_page extends Fragment{
                     fragment = new Menu_page();
                     break;
                 case R.id.branches_btn:
-                    Toast.makeText(getActivity(),"branches button click",Toast.LENGTH_SHORT).show();
+                    fragment = new Branches_page();
                     break;
                 case R.id.event_btn:
-                    Toast.makeText(getActivity(),"event button click",Toast.LENGTH_SHORT).show();
+                    fragment = new Event_page();
                     break;
                 case R.id.game_btn:
-                    Toast.makeText(getActivity(),"game button click",Toast.LENGTH_SHORT).show();
+                    fragment = new Game_page();
                     break;
             }
             FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
