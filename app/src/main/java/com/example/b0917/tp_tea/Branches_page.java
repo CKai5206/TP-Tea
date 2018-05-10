@@ -9,12 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class Branches_page extends Fragment{
-    View inflatedView;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        inflatedView = inflater.inflate(R.layout.branches_page,container,false);
-        return inflatedView;
+        return super.onCreateView(inflater, container, savedInstanceState);
     }
 
     @Override
