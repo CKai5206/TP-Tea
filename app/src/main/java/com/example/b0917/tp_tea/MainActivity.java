@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        displaySelectedScreen(R.id.nav_home);
+        displaySelectedScreen(R.id.nav_home);//set the home_page fragment while app build
     }
 
 
@@ -68,18 +68,18 @@ public class MainActivity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
-    public void displaySelectedScreen(int id){
-        Fragment fragment = null;
-        switch (id){
+    public void displaySelectedScreen(int id){//
+        Fragment fragment = null;//make a null fragment
+        switch (id){//asign the null fragment a existed fragment
             case R.id.nav_home:
                 fragment = new Home_page();
                 break;
             case R.id.nav_page2:
                 break;
         }
-        if(fragment != null){
+        if(fragment != null){//if fragment is not null then replace the currently fragmentView
             FragmentTransaction fragTrans = getSupportFragmentManager().beginTransaction();
-            fragTrans.replace(R.id.content_main,fragment);
+            fragTrans.add(R.id.content_framelayout,fragment);
             fragTrans.commit();
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
     }
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item) {//detect which item is onclick in slide menu and do the displaySelectedScreen function
 
         int id = item.getItemId();
 
