@@ -56,7 +56,8 @@ public class Home_page extends Fragment{
                     break;
             }
             FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-            fragTrans.replace(R.id.home_page,fragment);
+            fragTrans.replace(R.id.content_framelayout,fragment);
+            fragTrans.addToBackStack(null);
             fragTrans.commit();
         }
     };

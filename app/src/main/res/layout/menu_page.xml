@@ -5,13 +5,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/blackbg">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-        android:layout_centerInParent="true"
-        android:text="menu_page" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/LinearLayout"></LinearLayout>
 </RelativeLayout>
