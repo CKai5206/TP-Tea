@@ -1,6 +1,5 @@
 package com.example.b0917.tp_tea;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -8,12 +7,11 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.widget.ImageView;
+import com.example.b0917.tp_tea.DensityUtil;
+import com.example.b0917.tp_tea.R;
 
 public class Circleview extends android.support.v7.widget.AppCompatImageView implements Runnable{
     private Bitmap mHourBitmap;
-
     private boolean binitComplete = false;
     private boolean stopRoter = true;
     float Angel = 0.0f;
@@ -37,8 +35,8 @@ public class Circleview extends android.support.v7.widget.AppCompatImageView imp
     public void setRotate_degree(float degree){Angel =degree;}
 
     @Override
-    public void OnDraw(Canvas canvas){
-        super.OnDraw(canvas);
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
 
         matx.reset();
         canvas.drawColor(Color.TRANSPARENT);
@@ -161,4 +159,6 @@ public class Circleview extends android.support.v7.widget.AppCompatImageView imp
     public void setStopRoter(boolean stopRoter) {
         this.stopRoter = stopRoter;
     }
+
+
 }
