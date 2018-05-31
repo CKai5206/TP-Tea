@@ -15,6 +15,10 @@ public class Branches_page extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         inflatedView = inflater.inflate(R.layout.branches_page,container,false);
+
+        Gson gson = new Gson();
+        
+
         return inflatedView;
     }
 
