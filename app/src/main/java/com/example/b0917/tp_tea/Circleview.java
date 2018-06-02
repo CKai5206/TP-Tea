@@ -37,8 +37,8 @@ public class Circleview extends android.support.v7.widget.AppCompatImageView imp
     public void setRotate_degree(float degree){Angel =degree;}
 
     @Override
-    public void OnDraw(Canvas canvas){
-        super.OnDraw(canvas);
+    protected void onDraw(Canvas canvas){
+        super.onDraw(canvas);
 
         matx.reset();
         canvas.drawColor(Color.TRANSPARENT);
