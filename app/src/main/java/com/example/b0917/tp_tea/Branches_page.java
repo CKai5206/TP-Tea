@@ -12,11 +12,15 @@ import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class Branches_page extends Fragment{
     View inflatedView;
     String json = null;
+    List<BranchData> branches;
+    List<String> cityDropListValue;
+    List<String> districtDropListValue;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -24,18 +28,21 @@ public class Branches_page extends Fragment{
         Gson gson = new Gson();
         try {
             Log.i("start","start");
+
             InputStream inputStream = getContext().getAssets().open("branchesData.json");
             int size = inputStream.available();
             byte[] buffer = new byte[size];
             inputStream.read(buffer);
             inputStream.close();
             json = new String (buffer, "UTF-8");
-            List<BranchData> branches = gson.fromJson(json, new TypeToken<List<BranchData>>(){}.getType());
-            Log.i("its work",branches.get(0).getBranches().get(0).getAddress());
+
+            branches = gson.fromJson(json, new TypeToken<List<BranchData>>(){}.getType());
+            Log.i("branches list create",branches.get(0).getBranches().get(0).getAddress());
+
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return inflatedView;
     }
 
@@ -43,4 +50,5 @@ public class Branches_page extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
+
 }
