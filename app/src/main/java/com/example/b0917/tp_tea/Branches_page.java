@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -18,6 +19,7 @@ import java.io.InputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Branches_page extends Fragment{
@@ -60,14 +62,50 @@ public class Branches_page extends Fragment{
             Log.i("cityDropList create",cityDropListValue.toString());
 
             //put city list to spinner
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, cityDropListValue);
-            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            Log.i("cityAdapter should be",adapter.getItem(0).toString());
-            citySpinner.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
+            ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, cityDropListValue);
+            cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            Log.i("cityAdapter should be",cityAdapter.getItem(0).toString());
+            citySpinner.setAdapter(cityAdapter);
+            cityAdapter.notifyDataSetChanged();
             Log.i("cityAdapter really",citySpinner.getAdapter().getItem(0).toString());
 
+            //create citySpinner listener
+            citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                    Log.i("you select city",citySpinner.getSelectedItem().toString());
 
+                    //find index of chose city & get districts list
+                    int index = findIndexByCity(branches,citySpinner.getSelectedItem().toString());
+                    districtDropListValue = Arrays.asList(branches.get(index).getDistricts());
+                    Log.i("get districts list",districtDropListValue.toString());
+
+                    //change districtSpinner value
+                    ArrayAdapter<String> districtsAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, districtDropListValue);
+                    districtsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    districtSpinner.setAdapter(districtsAdapter);
+                    districtsAdapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
+
+            //create districtSpinner listenedistrict
+            districtSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+
+                }
+            });
             Log.i("end","END");
         } catch (IOException e) {
             e.printStackTrace();
@@ -80,4 +118,11 @@ public class Branches_page extends Fragment{
         super.onViewCreated(view, savedInstanceState);
     }
 
+    public int findIndexByCity(List<BranchData> branches, String city){
+        int i = 0;
+        while (!city.equals(branches.get(i).getCity())){
+            i++;
+        }
+        return i;
+    }
 }
