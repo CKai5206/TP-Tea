@@ -1,5 +1,6 @@
 package com.example.b0917.tp_tea;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,6 +17,9 @@ import android.widget.TextView;
 import java.util.Random;
 import com.example.b0917.tp_tea.LuckyPanView;
 import com.example.b0917.tp_tea.Circleview;
+
+import static com.example.b0917.tp_tea.R.id.ottery;
+
 
 public class Game_page extends Fragment{
 
@@ -37,13 +41,13 @@ public class Game_page extends Fragment{
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         inflatedView = inflater.inflate(R.layout.game_page,container,false);
-        FrameLayout layout = (FrameLayout) getView().findViewById(R.id.Lottery);
+        FrameLayout layout = inflatedView.findViewById(R.id.ottery);
         int screnWidth = getActivity().getWindowManager().getDefaultDisplay().getWidth();
         final Random random = new Random();
-        claert = new Circleview(this, screnWidth);
+        claert = new Circleview(getContext(), screnWidth);
         layout.addView(claert, new FrameLayout.LayoutParams
-                (FrameLayout.LayoutParams.FILL_PARENT, DensityUtil.dip2px(this, 300)));
-        getView().findViewById(R.id.begin_btn).setOnClickListener(new View.OnClickListener() {
+                (FrameLayout.LayoutParams.FILL_PARENT, DensityUtil.dip2px(getContext(), 300)));
+        inflatedView.findViewById(R.id.begin_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int place = 4;
@@ -52,15 +56,15 @@ public class Game_page extends Fragment{
                 claert.setStopRoter(false);
             }
         });
-        getView().findViewById(R.id.end_btn).setOnClickListener(new View.OnClickListener() {
+        inflatedView.findViewById(R.id.end_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 claert.setStopRoter(true);
             }
         });
-        mLuckyPanView = (LuckyPanView) getView().findViewById(R.id.id_luckypan);
-        mStartBtn = (ImageView) getView().findViewById(R.id.id_start_btn);
-        textView  = (TextView) getView().findViewById(R.id.ZZ);
+        mLuckyPanView = (LuckyPanView) inflatedView.findViewById(R.id.id_luckypan);
+        mStartBtn = (ImageView) inflatedView.findViewById(R.id.id_start_btn);
+        textView  = (TextView) inflatedView.findViewById(R.id.ZZ);
         final Handler handler = new Handler();
         mStartBtn.setOnClickListener(new View.OnClickListener() {
             @Override

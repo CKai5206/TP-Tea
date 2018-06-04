@@ -82,7 +82,7 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable {
      * 背景图的bitmap
      */
     private Bitmap mBgBitmap = BitmapFactory.decodeResource(getResources(),
-            R.mipmap.teas);
+            R.drawable.blackbg);
     /**
      * 文字的大小
      */
@@ -228,10 +228,11 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable {
 
     private void drawBg()
     {
+
         mCanvas.drawColor(0xFFFFFFFF);
-        mCanvas.drawBitmap(mBgBitmap, null, new Rect(mPadding / 2,
-                mPadding / 2, getMeasuredWidth() - mPadding / 2,
-                getMeasuredWidth() - mPadding / 2), null);
+        mCanvas.drawBitmap(mBgBitmap, null, new Rect(mPadding/200,
+                mPadding/200, getMeasuredWidth() - mPadding / 200,
+                getMeasuredWidth() - mPadding / 200), null);
     }
 
     /**
