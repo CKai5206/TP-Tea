@@ -31,14 +31,25 @@ import java.util.Map;
 
 public class Menu_page extends Fragment{
     View inflatedView;
-
+    ArrayList<menu_category> menu_categories;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         inflatedView = inflater.inflate(R.layout.menu_page,container,false);
         LinearLayout layout = (LinearLayout)this.inflatedView.findViewById(R.id.LinearLayout);
-
+        try{
+            String json = null;
+            InputStream is = getContext().getAssets().open("menu_Event.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer,"UTF-8");
+            Log.i(json,"json");
+        }catch (IOException ex){
+            ex.printStackTrace();
+        }
 //        Animation slide_in = AnimationUtils.loadAnimation(getActivity(),R.anim.slide);
 //        for(int i = 0;i < 10;i++){
 //            Button btn = new Button(getActivity());
