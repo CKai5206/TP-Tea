@@ -13,14 +13,15 @@ import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Branches_page extends Fragment{
     View inflatedView;
     String json = null;
     List<BranchData> branches;
-    List<String> cityDropListValue;
-    List<String> districtDropListValue;
+    List<String> cityDropListValue = new ArrayList<String>();
+    List<String> districtDropListValue = new ArrayList<String>();
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -35,11 +36,15 @@ public class Branches_page extends Fragment{
             inputStream.read(buffer);
             inputStream.close();
             json = new String (buffer, "UTF-8");
+            Log.i("read file","read");
 
             branches = gson.fromJson(json, new TypeToken<List<BranchData>>(){}.getType());
-            Log.i("branches list create",branches.get(0).getBranches().get(0).getAddress());
+            Log.i("branches list create",branches.get(0).getCity());
 
-
+            for(int i = 0 ; i < branches.size() ; i++) {
+                cityDropListValue.add(branches.get(i).getCity());
+            }
+            Log.i("cityDropList create",cityDropListValue.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

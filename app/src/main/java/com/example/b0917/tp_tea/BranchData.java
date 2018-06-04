@@ -2,11 +2,15 @@ package com.example.b0917.tp_tea;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Array;
 import java.util.List;
 
 public class BranchData {
     @SerializedName("city")
     private String city;
+
+    @SerializedName("districts")
+    private String[] districts;
 
     @SerializedName("branches")
     private List<Branch> branches;
@@ -50,6 +54,10 @@ public class BranchData {
 
     public String getCity() {
         return city;
+    }
+
+    public String[] getDistricts() {
+        return districts;
     }
 
     public List<Branch> getBranches() {
