@@ -10,6 +10,7 @@ import android.graphics.Paint;
 import com.example.b0917.tp_tea.DensityUtil;
 import com.example.b0917.tp_tea.R;
 
+
 public class Circleview extends android.support.v7.widget.AppCompatImageView implements Runnable{
     private Bitmap mHourBitmap;
     private boolean binitComplete = false;
@@ -18,13 +19,13 @@ public class Circleview extends android.support.v7.widget.AppCompatImageView imp
     Matrix matx = new Matrix();
     float maxAngel = 0.0f;
     int screnWidth = 0;
-
-    public Circleview(Context context,int width) {
+    public Circleview(Context context, int width) {
         super(context);
         this.screnWidth = width;
         init();
         new Thread(this).start();
     }
+
 
     public void  init(){
         mHourBitmap = BitmapFactory.decodeResource(getResources(),R.mipmap.share_lottery_pointer);
