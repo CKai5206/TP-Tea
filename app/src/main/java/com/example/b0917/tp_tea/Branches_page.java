@@ -8,28 +8,35 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import java.io.InputStream;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 public class Branches_page extends Fragment{
-    View inflatedView;
     String json = null;
+
+    View inflatedView;
     Spinner citySpinner;
     Spinner districtSpinner;
+    ListView branchesListView;
+
     List<BranchData> branches;
     List<String> cityDropListValue = new ArrayList<String>();
     List<String> districtDropListValue = new ArrayList<String>();
+    List<BranchData.Branch> branchesShowList = new ArrayList<BranchData.Branch>();
+
+    ArrayAdapter<String> cityAdapter;
+    ArrayAdapter<String> districtsAdapter;
+    BranchesShowListAdapter branchesShowListAdapter;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -37,10 +44,11 @@ public class Branches_page extends Fragment{
 
         citySpinner = inflatedView.findViewById(R.id.citySpinner);
         districtSpinner = inflatedView.findViewById(R.id.districtSpinner);
+        branchesListView = inflatedView.findViewById(R.id.branchesListView);
         Gson gson = new Gson();
 
         try {
-            Log.i("start","start");
+            Log.i("onCreateView start","START");
 
             //read branchesData.json to String
             InputStream inputStream = getContext().getAssets().open("branchesData.json");
@@ -62,12 +70,10 @@ public class Branches_page extends Fragment{
             Log.i("cityDropList create",cityDropListValue.toString());
 
             //put city list to spinner
-            ArrayAdapter<String> cityAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, cityDropListValue);
+            cityAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, cityDropListValue);
             cityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            Log.i("cityAdapter should be",cityAdapter.getItem(0).toString());
             citySpinner.setAdapter(cityAdapter);
             cityAdapter.notifyDataSetChanged();
-            Log.i("cityAdapter really",citySpinner.getAdapter().getItem(0).toString());
 
             //create citySpinner listener
             citySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -76,15 +82,15 @@ public class Branches_page extends Fragment{
                     Log.i("you select city",citySpinner.getSelectedItem().toString());
 
                     //find index of chose city & get districts list
-                    int index = findIndexByCity(branches,citySpinner.getSelectedItem().toString());
-                    districtDropListValue = Arrays.asList(branches.get(index).getDistricts());
+                    districtDropListValue = Arrays.asList(branches.get(findIndexByCity(branches,citySpinner.getSelectedItem().toString())).getDistricts());
                     Log.i("get districts list",districtDropListValue.toString());
 
                     //change districtSpinner value
-                    ArrayAdapter<String> districtsAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, districtDropListValue);
+                    districtsAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_spinner_item, districtDropListValue);
                     districtsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     districtSpinner.setAdapter(districtsAdapter);
                     districtsAdapter.notifyDataSetChanged();
+
                 }
 
                 @Override
@@ -98,7 +104,12 @@ public class Branches_page extends Fragment{
 
                 @Override
                 public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    Log.i("district selcet",districtSpinner.getSelectedItem().toString());
 
+                    //change listView item
+                    branchesShowList = findShowBranchesByDistrict(branches.get(findIndexByCity(branches,citySpinner.getSelectedItem().toString())),districtSpinner.getSelectedItem().toString());
+                    branchesShowListAdapter = new BranchesShowListAdapter(getActivity().getApplicationContext(),branchesShowList);
+                    branchesListView.setAdapter(branchesShowListAdapter);
                 }
 
                 @Override
@@ -106,7 +117,9 @@ public class Branches_page extends Fragment{
 
                 }
             });
-            Log.i("end","END");
+
+
+            Log.i("onCreateView end","END");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -124,5 +137,16 @@ public class Branches_page extends Fragment{
             i++;
         }
         return i;
+    }
+
+    public List<BranchData.Branch> findShowBranchesByDistrict(BranchData branchData, String district){
+        List<BranchData.Branch> branchList = new ArrayList<BranchData.Branch>();
+        for (int i = 0; i < branchData.getBranches().size() ; i++){
+            if (branchData.getBranches().get(i).getDistrict().equals(district)){
+                branchList.add(branchData.getBranches().get(i));
+            }
+        }
+        Log.i("branchList first item",branchList.get(0).getStoreName());
+        return branchList;
     }
 }

@@ -23,6 +23,7 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textAlignment="center"
             android:prompt="@string/citySpinnerTitle"
             android:spinnerMode="dialog" />
 
@@ -31,16 +32,19 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:textAlignment="center"
             android:prompt="@string/districtSpinnerTitle"
             android:spinnerMode="dialog" />
     </LinearLayout>
 
     <ListView
-        android:layout_width="386dp"
-        android:layout_height="513dp"
+        android:id="@+id/branchesListView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </android.support.constraint.ConstraintLayout>
