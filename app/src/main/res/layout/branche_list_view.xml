@@ -7,38 +7,95 @@
     android:padding="10dp">
 
 
-    <TextView
-        android:id="@+id/storeName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+    <RelativeLayout
+        android:id="@+id/showArea"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
         android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
-        android:text="學士店"
-        android:textColor="#70675E"
-        android:textSize="17dp" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true">
 
-    <TextView
-        android:id="@+id/phone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="04-22077317"
-        android:textColor="#70675E"
-        android:textSize="17dp" />
+        <TextView
+            android:id="@+id/storeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="68dp"
+            android:layout_marginStart="68dp"
+            android:text="學士店"
+            android:textColor="#70675E"
+            android:textSize="17sp" />
 
-    <ImageButton
-        android:id="@+id/showMapButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/openORclose"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:layout_marginStart="17dp"
+            app:srcCompat="@drawable/ic_open" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="100dp"
+            android:layout_marginRight="100dp"
+            android:text="04-22077317"
+            android:textColor="#70675E"
+            android:textSize="17sp" />
+
+        <ImageButton
+            android:id="@+id/showMapButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@null"
+            android:contentDescription="show map button"
+            app:srcCompat="@drawable/ic_maptag" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/hideArea"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@null"
-        android:contentDescription="show map button"
-        app:srcCompat="@drawable/ic_maptag" />
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp">
+
+        <TextView
+            android:id="@+id/addressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="17dp"
+            android:layout_weight="1"
+            android:text="門市位置:   "
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="221dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/addressText"
+            android:layout_weight="1"
+            android:text="台中市北區學士路161號"
+            android:textSize="17sp" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
