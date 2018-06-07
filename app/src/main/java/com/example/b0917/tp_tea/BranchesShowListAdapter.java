@@ -16,8 +16,6 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
 public class BranchesShowListAdapter extends BaseAdapter {
     private LayoutInflater myInflater;
     private List<BranchData.Branch> branches;
@@ -112,7 +110,7 @@ public class BranchesShowListAdapter extends BaseAdapter {
 
         if (currentItem == position) {
             holder.hideArea.setVisibility(View.VISIBLE);
-            holder.openORcloce.setImageResource(R.drawable.ic_cloce);
+            holder.openORcloce.setImageResource(R.drawable.ic_close);
         } else {
             holder.hideArea.setVisibility(View.GONE);
             holder.openORcloce.setImageResource(R.drawable.ic_open);
@@ -121,11 +119,13 @@ public class BranchesShowListAdapter extends BaseAdapter {
         //set showMapButton onClick
         holder.showMapButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                Log.i("start click mapButton","START");
                 Uri gmmIntentUri = Uri.parse("geo:" + branch.getCoordinate() + "?q=" + branch.getStoreName() + "+茶湯會&z=18");
                 Log.i("Uri",gmmIntentUri.toString());
                 Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
                 mapIntent.setPackage("com.google.android.apps.maps");
                 context.startActivity(mapIntent);
+                Log.i("end click mapButton","END");
             }
         });
         return convertView;

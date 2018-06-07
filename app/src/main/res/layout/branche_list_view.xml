@@ -30,8 +30,8 @@
 
         <ImageView
             android:id="@+id/openORclose"
-            android:layout_width="30px"
-            android:layout_height="30px"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
