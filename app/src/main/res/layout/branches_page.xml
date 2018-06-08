@@ -11,10 +11,9 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="52dp"
-        android:layout_marginBottom="515dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -23,30 +22,29 @@
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="#FF000000"
-            android:textAlignment="center"
             android:prompt="@string/citySpinnerTitle"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:textAlignment="center"
+            android:textColor="#FF000000" />
 
         <Spinner
             android:id="@+id/districtSpinner"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:textColor="#FF000000"
-            android:textAlignment="center"
             android:prompt="@string/districtSpinnerTitle"
-            android:spinnerMode="dialog" />
+            android:spinnerMode="dialog"
+            android:textAlignment="center"
+            android:textColor="#FF000000" />
     </LinearLayout>
 
     <ListView
         android:id="@+id/branchesListView"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 </android.support.constraint.ConstraintLayout>
