@@ -35,12 +35,13 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable {
     /**
      * 轉盤上的文字
      */
-    private String[] mStrs = new String[]{"1", "2", "3", "4", "5", "6"};
+    private String[] mStrs = new String[]{"再來一杯", "銘謝惠顧", "第二杯六折", "下次再來",
+                                           "再玩一次", "買二送二"};
     /**
      * 轉盤上的顏色
      */
-    private int[] mColors = new int[]{0xFF4B0082, 0xFFCDF000, 0xFF000000,
-            0xFF00FFEb, 0xFFFF77FF, 0xFFF17E01};
+    private int[] mColors = new int[]{0xFFFF6565, 0xFFEF4182, 0xFF8A7CCB,
+            0xFF42B3D0, 0xFF30BAA3, 0xFFF8B195};
     /**
      * 盤子的數量
      */
@@ -83,6 +84,8 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable {
      */
     private Bitmap mBgBitmap = BitmapFactory.decodeResource(getResources(),
             R.drawable.blackbg);
+    private Bitmap mBgBitmap2 = BitmapFactory.decodeResource(getResources(),
+            R.mipmap.circle_bg);
     /**
      * 文字的大小
      */
@@ -228,11 +231,12 @@ public class LuckyPanView extends SurfaceView implements Callback, Runnable {
 
     private void drawBg()
     {
-
-        mCanvas.drawColor(0xFFFFFFFF);
         mCanvas.drawBitmap(mBgBitmap, null, new Rect(mPadding/200,
                 mPadding/200, getMeasuredWidth() - mPadding / 200,
                 getMeasuredWidth() - mPadding / 200), null);
+        mCanvas.drawBitmap(mBgBitmap2,null,new Rect(mPadding/2,
+                mPadding/2,getMeasuredWidth()-mPadding/2,
+                getMeasuredWidth() -mPadding/2),null);
     }
 
     /**
