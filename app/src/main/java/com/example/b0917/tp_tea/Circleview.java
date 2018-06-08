@@ -11,7 +11,7 @@ import com.example.b0917.tp_tea.DensityUtil;
 import com.example.b0917.tp_tea.R;
 
 
-public class Circleview extends android.support.v7.widget.AppCompatImageView implements Runnable{
+public class Circleview extends android.support.v7.widget.AppCompatImageView  implements Runnable{
     private Bitmap mHourBitmap;
 
     private boolean bInitComplete = false;
