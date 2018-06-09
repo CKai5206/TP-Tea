@@ -4,11 +4,11 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 
 public class menu_category {
-    public String category_name;
-    public ArrayList<menu_drinks> drinks;
+    public String category;
+    public ArrayList<menu_drinks> item;
 
-    public menu_category(String category_name) {
-        this.category_name = category_name;
-        this.drinks = new ArrayList<>();
+    public menu_category(String category,ArrayList<menu_drinks> item) {
+        this.category = category;
+        this.item = item;
     }
 }
