@@ -1,35 +1,23 @@
 package com.example.b0917.tp_tea;
 
-import android.content.Intent;
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.b0917.tp_tea.models.menu_category;
-import com.example.b0917.tp_tea.models.menu_drinks;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Map;
 
 
 public class Menu_page extends Fragment{
@@ -48,6 +36,7 @@ public class Menu_page extends Fragment{
 
 
     public void loadmenufile(LinearLayout layout){
+
         try{
             String json = null;
             InputStream is = getContext().getAssets().open("menu_Event.json");
@@ -63,28 +52,27 @@ public class Menu_page extends Fragment{
                 btn.setId(indexofcategory);
                 btn.setText(menu_categories.get(indexofcategory).category);
                 layout.addView(btn);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("menu_categories",menu_categories);
-                bundle.putInt("onclick_category",btn.getId());
-                btn.setOnClickListener(buttonListener);
+                btn.setOnClickListener(new Button.OnClickListener(){
+                    Fragment fragment = null;
+                    @Override
+                    public void onClick(View view) {
+                        fragment = new MenuDrinks();
+                        Bundle bundle = new Bundle();
+                        bundle.putSerializable("list",menu_categories.get(view.getId()).item);
+                        bundle.putInt("onclick_category",view.getId());
+                        fragment.setArguments(bundle);
+                        FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
+                        fragTrans.replace(R.id.content_framelayout,fragment);
+                        fragTrans.addToBackStack(null);
+                        fragTrans.commit();
+                    }
+                });
             }
         }catch (IOException ex){
             ex.printStackTrace();
         }
     }
 
-    private Button.OnClickListener buttonListener = new Button.OnClickListener(){
-        Fragment fragment = null;
-        @Override
-        public void onClick(View view) {
-            fragment = new category_detail_page();
-            FragmentTransaction fragTrans = getFragmentManager().beginTransaction();
-
-            fragTrans.replace(R.id.content_framelayout,fragment);
-            fragTrans.addToBackStack(null);
-            fragTrans.commit();
-        }
-    };
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
