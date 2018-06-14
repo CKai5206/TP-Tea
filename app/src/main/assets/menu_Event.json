@@ -5,27 +5,33 @@
       {
         "name":"觀音拿鐵",
         "price":55,
-        "hot":1},
+        "hot":true
+      },
       {
         "name":"珍珠紅豆拿鐵",
         "price":65,
-        "hot":1},
+        "hot":true
+      },
       {
         "name":"翡翠檸檬",
         "price":55,
-        "hot":0},
+        "hot":false
+      },
       {
         "name":"珍珠奶茶",
         "price":49,
-        "hot":1},
+        "hot":true
+      },
       {
         "name":"新鮮水果茶",
         "price":55,
-        "hot":1},
+        "hot":true
+      },
       {
         "name":"鮮桔檸檬",
         "price":55,
-        "hot":1}
+        "hot":true
+      }
     ]
   },
   {
@@ -34,122 +40,346 @@
       {
         "name":"蔗香紅茶",
         "price":25,
-        "hot":1
+        "hot":true
       },
       {
         "name":"茉香綠茶",
         "price":30,
-        "hot":0
+        "hot":false
       },
       {
         "name":"黃金輕焙烏龍",
         "price":30,
-        "hot":0
+        "hot":false
       },
       {
         "name":"特級翡翠綠",
         "price":35,
-        "hot":1
+        "hot":true
       },
       {
         "name":"炭燒鐵觀音",
         "price":35,
-        "hot":1
+        "hot":true
       },
       {
         "name":"珍珠紅茶",
         "price":35,
-        "hot":1
+        "hot":true
       },
       {
         "name":"包種清茶",
         "price":35,
-        "hot":0
+        "hot":false
       },
       {
         "name":"珍珠綠茶",
         "price":35,
-        "hot":1
+        "hot":true
       },
       {
         "name":"東方美人",
         "price":60,
-        "hot":0
+        "hot":false
       }
     ]
   },
   {
     "category":"調味茶",
-    "item":[{"name":"冬瓜鐵觀音", "price":39, "hot":1},
-    {"name":"豆漿紅茶", "price":39, "hot":1},
-    {"name":"青梅凍飲", "price":40, "hot":1},
-    {"name":"蜜香清茶", "price":45, "hot":0},
-    {"name":"珍珠冬瓜觀音", "price":45, "hot":1},
-    {"name":"蜂蜜綠茶", "price":50, "hot":0},
-    {"name":"百香綠茶", "price":50, "hot":0},
-    {"name":"養樂多綠茶", "price":50, "hot":0},
-    {"name":"蔓越莓冰醋", "price":60, "hot":0},
-    {"name":"草莓多多綠", "price":60, "hot":0}]
+    "item":[
+      {
+        "name":"冬瓜鐵觀音",
+        "price":39,
+        "hot":true
+      },
+      {
+        "name":"豆漿紅茶",
+        "price":39,
+        "hot":true
+      },
+      {
+        "name":"青梅凍飲",
+        "price":40,
+        "hot":true
+      },
+      {
+        "name":"蜜香清茶",
+        "price":45,
+        "hot":false
+      },
+      {
+        "name":"珍珠冬瓜觀音",
+        "price":45,
+        "hot":true
+      },
+      {
+        "name":"蜂蜜綠茶",
+        "price":50,
+        "hot":false
+      },
+      {
+        "name":"百香綠茶",
+        "price":50,
+        "hot":false
+      },
+      {
+        "name":"養樂多綠茶",
+        "price":50,
+        "hot":false
+      },
+      {
+        "name":"蔓越莓冰醋",
+        "price":60,
+        "hot":false
+      },
+      {
+        "name":"草莓多多綠",
+        "price":60,
+        "hot":false
+      }
+    ]
   },
   {
     "category":"奶香茶",
-    "item":[{"name":"蔗香奶茶", "price":40, "hot":1},
-    {"name":"茉香奶茶", "price":40, "hot":1},
-    {"name":"豆漿奶茶", "price":45, "hot":1},
-    {"name":"鐵觀音奶茶", "price":45, "hot":1},
-    {"name":"珍珠奶綠", "price":49, "hot":1},
-    {"name":"布丁奶茶", "price":49, "hot":0}]
+    "item":[
+      {
+        "name":"蔗香奶茶",
+        "price":40,
+        "hot":true
+      },
+      {
+        "name":"茉香奶茶",
+        "price":40,
+        "hot":true
+      },
+      {
+        "name":"豆漿奶茶",
+        "price":45,
+        "hot":true
+      },
+      {
+        "name":"鐵觀音奶茶",
+        "price":45,
+        "hot":true
+      },
+      {
+        "name":"珍珠奶綠",
+        "price":49,
+        "hot":true
+      },
+      {
+        "name":"布丁奶茶",
+        "price":49,
+        "hot":false
+      }
+    ]
   },
   {
     "category":"波霸奶茶",
-    "item":[{"name":"波霸奶茶", "price":49, "hot":1},
-    {"name":"觀音波霸奶茶", "price":49, "hot":1},
-    {"name":"豆漿波霸奶茶", "price":49, "hot":1}]
+    "item":[
+      {
+        "name":"波霸奶茶",
+        "price":49,
+        "hot":true
+      },
+      {
+        "name":"觀音波霸奶茶",
+        "price":49,
+        "hot":true
+      },
+      {
+        "name":"豆漿波霸奶茶",
+        "price":49,
+        "hot":true
+      }
+    ]
   },
   {
     "category":"鮮調茶",
-    "item":[{"name":"冬瓜檸檬", "price":49, "hot":0},
-    {"name":"檸檬紅茶", "price":50, "hot":1},
-    {"name":"檸檬蜜茶", "price":50, "hot":0},
-    {"name":"檸檬蘆薈蜜", "price":55, "hot":0}]
+    "item":[
+      {
+        "name":"冬瓜檸檬",
+        "price":49,
+        "hot":false
+      },
+      {
+        "name":"檸檬紅茶",
+        "price":50,
+        "hot":true
+      },
+      {
+        "name":"檸檬蜜茶",
+        "price":50,
+        "hot":false
+      },
+      {
+        "name":"檸檬蘆薈蜜",
+        "price":55,
+        "hot":false
+      }
+    ]
   },
   {"category":"拿鐵茶",
-    "item":[{"name":"冬瓜拿鐵", "price":45, "hot":1},
-    {"name":"抹茶拿鐵", "price":50, "hot":1},
-    {"name":"抹茶紅豆拿鐵", "price":55, "hot":1},
-    {"name":"紅茶拿鐵", "price":55, "hot":1},
-    {"name":"翡翠拿鐵", "price":55, "hot":1},
-    {"name":"紅豆拿鐵", "price":60, "hot":1},
-    {"name":"紅茶珍珠拿鐵", "price":60, "hot":1},
-    {"name":"翡翠珍珠拿鐵", "price":60, "hot":1},
-    {"name":"觀音珍珠拿鐵", "price":60, "hot":1}]
+    "item":[
+      {
+        "name":"冬瓜拿鐵",
+        "price":45,
+        "hot":true
+      },
+      {
+        "name":"抹茶拿鐵",
+        "price":50,
+        "hot":true
+      },
+      {
+        "name":"抹茶紅豆拿鐵",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"紅茶拿鐵",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"翡翠拿鐵",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"紅豆拿鐵",
+        "price":60,
+        "hot":true
+      },
+      {
+        "name":"紅茶珍珠拿鐵",
+        "price":60,
+        "hot":true
+      },
+      {
+        "name":"翡翠珍珠拿鐵",
+        "price":60,
+        "hot":true
+      },
+      {
+        "name":"觀音珍珠拿鐵",
+        "price":60,
+        "hot":true
+      }
+    ]
   },
   {"category":"夏季限定",
-    "item":[{"name":"桑葚凍飲茶", "price":49, "hot":0},
-    {"name":"葚夏愛戀", "price":49, "hot":0},
-    {"name":"愛文芒果綠", "price":50, "hot":0},
-    {"name":"草莓拿鐵", "price":55, "hot":0},
-    {"name":"愛文芒果冰鑽", "price":55, "hot":0},
-    {"name":"愛文芒果拿鐵", "price":60, "hot":0}]
+    "item":[
+      {
+        "name":"桑葚凍飲茶",
+        "price":49,
+        "hot":false
+      },
+      {
+        "name":"葚夏愛戀",
+        "price":49,
+        "hot":false
+      },
+      {
+        "name":"愛文芒果綠",
+        "price":50,
+        "hot":false
+      },
+      {
+        "name":"草莓拿鐵",
+        "price":55,
+        "hot":false
+      },
+      {
+        "name":"愛文芒果冰鑽",
+        "price":55,
+        "hot":false
+      },
+      {
+        "name":"愛文芒果拿鐵",
+        "price":60,
+        "hot":false
+      }
+    ]
   },
   {
     "category":"冬季限定",
-    "item":[{"name":"原味薑茶", "price":45, "hot":1},
-    {"name":"薑汁奶茶", "price":50, "hot":1},
-    {"name":"堅果奶茶", "price":50, "hot":1},
-    {"name":"薑汁桂圓", "price":55, "hot":1},
-    {"name":"桂圓紅棗茶", "price":55, "hot":1},
-    {"name":"堅果拿鐵", "price":55, "hot":1},
-    {"name":"波霸堅果拿鐵", "price":60, "hot":1},
-    {"name":"紫米紅豆拿鐵", "price":60, "hot":1}]
+    "item":[
+      {
+        "name":"原味薑茶",
+        "price":45,
+        "hot":true
+      },
+      {
+        "name":"薑汁奶茶",
+        "price":50,
+        "hot":true
+      },
+      {
+        "name":"堅果奶茶",
+        "price":50,
+        "hot":true
+      },
+      {
+        "name":"薑汁桂圓",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"桂圓紅棗茶",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"堅果拿鐵",
+        "price":55,
+        "hot":true
+      },
+      {
+        "name":"波霸堅果拿鐵",
+        "price":60,
+        "hot":true
+      },
+      {
+        "name":"紫米紅豆拿鐵",
+        "price":60,
+        "hot":true
+      }
+    ]
   },
   {
     "category":"加料類",
-    "item":[{"name":"紅豆", "price":10},
-    {"name":"珍珠", "price":10},
-    {"name":"檸檬", "price":10},
-    {"name":"波霸", "price":10},
-    {"name":"蘆薈", "price":10},
-    {"name":"布丁", "price":12}]
+    "item":[
+      {
+        "name":"紅豆",
+        "price":10,
+        "hot":false
+      },
+      {
+        "name":"珍珠",
+        "price":10,
+        "hot":false
+      },
+      {
+        "name":"檸檬",
+        "price":10,
+        "hot":false
+      },
+      {
+        "name":"波霸",
+        "price":10,
+        "hot":false
+      },
+      {
+        "name":"蘆薈",
+        "price":10,
+        "hot":false
+      },
+      {
+        "name":"布丁",
+        "price":12,
+        "hot":false
+      }
+    ]
   }
 ]

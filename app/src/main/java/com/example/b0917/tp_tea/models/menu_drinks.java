@@ -5,9 +5,9 @@ public class menu_drinks {
     public double price;
     public boolean hot;
 
-    public menu_drinks(String name, double price) {
+    public menu_drinks(String name, double price,boolean hot) {
         this.name = name;
         this.price = price;
-        this.hot = false;
+        this.hot = hot;
     }
 }
