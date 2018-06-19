@@ -52,7 +52,7 @@ public class BranchesShowListAdapter extends BaseAdapter {
 
         //set holder
         if(convertView==null){
-            convertView = myInflater.inflate(R.layout.branche_list_view, null);
+            convertView = myInflater.inflate(R.layout.branch_list_view, null);
             holder = new ViewHolder(
                     (RelativeLayout) convertView.findViewById(R.id.showArea),
                     (ImageView) convertView.findViewById(R.id.openORclose),
